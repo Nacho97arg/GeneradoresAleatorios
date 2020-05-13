@@ -1,6 +1,6 @@
 import numpy as np
 
-class GCL:
+class ranGen:
 
     def randGCL(self, seed, rep): #Linear congruential generator
         val = []

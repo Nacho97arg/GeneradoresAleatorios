@@ -1,7 +1,7 @@
 import generadores as gn
 import numpy.matlib as np
 
-gen = gn.GCL()
+gen = gn.ranGen()
 
 nrosRandom = gen.randLFG(6,8,100)#gen.randGCL(15,100)
 
