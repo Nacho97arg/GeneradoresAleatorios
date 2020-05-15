@@ -26,6 +26,9 @@
     <Compile Include="Main.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Tests.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="CondaEnv|CondaEnv|CondaEnv2" />
