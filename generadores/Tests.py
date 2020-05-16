@@ -1,4 +1,5 @@
 import numpy.matlib as np
+from scipy.stats import ksone
 
 class tests:
 
@@ -24,5 +25,29 @@ class tests:
                 cont+=1
         return cont
 
+    def testKS(self, muestra, n):
+        valor_critico = self.ks_critical_value(n, 0.05)
+        print(valor_critico)
+        muestra.sort()
+        d_max = 0
+        d_min = 0
+        for i in range(0, n):
+            a = i/n - muestra[i]
+            if (a > d_max):
+                d_max = a
+            b = muestra[i] - (i-1)/n
+            if (b < d_min):
+                d_min = b
 
+        if (d_min > d_max):
+            D = d_min
+        else:
+            D = d_max
 
+        if(D < valor_critico):
+            return True
+        else:
+            return False
+
+    def ks_critical_value(self, n_trials, alpha):
+        return ksone.ppf(1-alpha/2, n_trials)
