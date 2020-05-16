@@ -130,26 +130,13 @@ class tests:
     		for j in range(0, n):
     			lista.append(0)
     		tabla.append(lista)
-
+    	a=0
     	for i in lista_parejas:
-    		for j in range(n, 0, -1):
-    			for k in range (n, 0, -1):
-    				if(j-1 == 0 and k-1 != 0):
-    					if (1/j > i[0] and 1/k > i[1] and 1/(k-1) < i[1]):
-    						tabla[5-j][5-k] += 1
-    						break
-    				elif (k-1 == 0 and j-1 != 0):
-    					if (1/j > i[0] and 1/k > i[1] and 1/(j-1) < i[0]):
-    						tabla[5-j][5-k] += 1
-    						break
-    				elif (k-1 == 0 and j-1 == 0):
-    					if (1/j > i[0] and 1/k > i[1]):
-    						tabla[5-j][5-k] += 1
-    						break
-    				else:
-    					if (1/j > i[0] and 1/k > i[1] and 1/(j-1) < i[0] and 1/(k-1) < i[1]):
-    						tabla[5-j][5-k] += 1
-    						break
+    		for j in range(n*2, 0, -2):
+    			for k in range (n*2, 0, -2):
+    				if(((i[0]*10) > j-2 and (i[0]*10) < j) and ((i[1]*10) < k and (i[1]*10) > k-2)):
+    					tabla[n-j][n-k] += 1
+    					break
 
     	x_0 = 0
     	for i in range(0, n):
