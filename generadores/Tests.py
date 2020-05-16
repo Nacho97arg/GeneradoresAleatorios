@@ -24,9 +24,10 @@ class tests:
                 cont+=1
         return cont
 
-    def testKS(self, muestra, n):
+    def testKS(self, sample):
+        n=len(sample)
         valor_critico = self.ks_critical_value(n, 0.05)
-        print(valor_critico)
+        muestra = sample.copy()
         muestra.sort()
         d_max = 0
         d_min = 0
@@ -44,9 +45,9 @@ class tests:
             D = d_max
 
         if(D < valor_critico):
-            return True
+            return "Aprobado"#True
         else:
-            return False
+            return "Fallo"#False
 
     def ks_critical_value(self, n_trials, alpha):
         return ksone.ppf(1-alpha/2, n_trials)
@@ -68,7 +69,6 @@ class tests:
         while index < len(muestrabin):
             nroAct = muestrabin[index]
             if index != len(muestrabin)-1:
-#                frecNroAct = 1
                 if nroAct == muestrabin[index+1]:
                     frecNroAct = frecNroAct + 1
                 if nroAct != muestrabin[index+1]:

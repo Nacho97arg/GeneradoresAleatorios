@@ -10,11 +10,9 @@ class ranGen:
         for i in range(0,rep):
             
             if i==0:
-                #x = ((seed * a + c) % m) / m
                 x = (seed * a + c) % m
                 val.append(x)
             else:
-                #x = ((val[i-1] * a + c) % m) / m
                 x = (val[i-1] * a + c) % m
                 val.append(x)
         for i in range(len(val)):
@@ -33,10 +31,8 @@ class ranGen:
         for n in range(rep):
             for i in range(len(fibseq)):
                 if i is 0:
-                    #out = ((fibseq[j-1] + fibseq[k-1]) % m) / m
                     out = (fibseq[j-1] + fibseq[k-1]) % m
                 elif 0 < i < len(fibseq)-1:
-                    #fibseq[i] = fibseq[i+1] / m
                     fibseq[i] = fibseq[i+1]
                 else:
                     fibseq[i] = out
