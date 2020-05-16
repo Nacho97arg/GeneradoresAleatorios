@@ -122,9 +122,51 @@ class tests:
         else: 
             return "Fallo"
 
+    def series(self, muestra):
+    	N = len(muestra)
+    	n = 5
+    	lista_parejas = []
+    	for i in range(0, N-1):
+    		pareja = [muestra[i], muestra[i+1]]
+    		lista_parejas.append(pareja)
 
+    	tabla = []
+    	for i in range(0, n):
+    		lista = []
+    		for j in range(0, n):
+    			lista.append(0)
+    		tabla.append(lista)
 
+    	for i in lista_parejas:
+    		for j in range(n, 0, -1):
+    			for k in range (n, 0, -1):
+    				if(j-1 == 0 and k-1 != 0):
+    					if (1/j > i[0] and 1/k > i[1] and 1/(k-1) < i[1]):
+    						tabla[5-j][5-k] += 1
+    						break
+    				elif (k-1 == 0 and j-1 != 0):
+    					if (1/j > i[0] and 1/k > i[1] and 1/(j-1) < i[0]):
+    						tabla[5-j][5-k] += 1
+    						break
+    				elif (k-1 == 0 and j-1 == 0):
+    					if (1/j > i[0] and 1/k > i[1]):
+    						tabla[5-j][5-k] += 1
+    						break
+    				else:
+    					if (1/j > i[0] and 1/k > i[1] and 1/(j-1) < i[0] and 1/(k-1) < i[1]):
+    						tabla[5-j][5-k] += 1
+    						break
 
+    	x_0 = 0
+    	for i in range(0, n):
+    		for j in range(0, n):
+    			x_0 = (tabla[i][j] - (N-1)/n**2)**2
 
+    	x_0 = n**2/(N-1) * x_0
 
+    	x_0_calculada = 36.4
 
+    	if x_0 < x_0_calculada:
+    		return "Aprobado"
+    	else:
+    		return "Fallo"
