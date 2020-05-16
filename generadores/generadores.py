@@ -17,6 +17,8 @@ class ranGen:
                 #x = ((val[i-1] * a + c) % m) / m
                 x = (val[i-1] * a + c) % m
                 val.append(x)
+        for i in range(len(val)):
+            val[i] = val[i] / m
         return val
 
     def randLFG(self,seed1,seed2,rep): #Lagged Fibonacci generator
