@@ -5,9 +5,7 @@ from scipy.stats import chi2
 class tests:
 
     def chiSqTest(self, muestra):
-        maxval = 2**64 #Probar con distintos valores (num max en muestra y num max posible por el generador)
-        for i in range(len(muestra)):
-            muestra[i]=muestra[i]/(maxval)
+
         frecAbs=[]
         for i in range(10):
             frecAbs.append(self.contar(i/10,(i+1)/10,muestra)) #10 intervalos de 0.1
@@ -54,10 +52,6 @@ class tests:
         return ksone.ppf(1-alpha/2, n_trials)
 
     def testCorridas(self, muestra):
-
-        maxval = 2**64 #Probar con distintos valores (num max en muestra y num max posible por el generador)
-        for i in range(len(muestra)):
-            muestra[i]=muestra[i]/(maxval)
 
         muestrabin=[]
         for i in muestra:
